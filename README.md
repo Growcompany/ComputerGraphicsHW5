@@ -83,41 +83,25 @@ out.bmp 를 운영체제 기본 이미지 뷰어로 열어 Unshaded Sphere 결�
 
 ### main.cpp
 
-1. **Scene Generation**  
-   ```cpp
-   create_scene();
-   ```
+1. **장면 생성**  
+   - 구체 메시 초기화 (`create_scene()`).
 
+2. **버퍼 설정**  
+   - 컬러 버퍼(검은색)와 뎁스 버퍼(무한대) 할당 및 초기화.
 
-2. **Buffers**
-  ```cpp
-  frameBuffer.assign(NX*NY, Color{0,0,0});
-  depthBuffer.assign(NX*NY, std::numeric_limits<float>::infinity());
-  ```
-3. **Matrices**
+3. **행렬 구성**  
+   - 모델링, 뷰, 투영, 뷰포트 행렬 생성.
 
-Mat4 M = Translate(0,0,-7) * Scale(2,2,2);
-Mat4 V = Identity();
-Mat4 P = MakeFrustumFromZPlanes(-0.1f,+0.1f,-0.1f,+0.1f,-0.1f,-1000.0f);
-Mat4 W = MakeViewport(512, 512);
+4. **버텍스 변환**  
+   - 각 버텍스를 MVP 및 뷰포트 변환을 통해 화면 좌표로 변환.
 
-4. **Vertex Shader (Lambda)**
+5. **래스터라이징**  
+   - 삼각형마다:  
+     - 경계 박스 계산  
+     - 바리센트릭 검사 및 깊이 보간  
+     - 깊이 테스트 통과 시 픽셀 업데이트  
+     - (선택) 뒷면 컬링
 
-auto transform_vertex = [&](const Vec3& v){
-  Vec4 clip = P * V * M * Vec4{v.x,v.y,v.z,1};
-  Vec4 ndc  = { clip.x/clip.w, clip.y/clip.w, clip.z/clip.w, 1 };
-  return W * ndc;
-};
+6. **BMP 저장**  
+   - 최종 컬러 버퍼를 `out.bmp`로 BMP 형식 저장.
 
-
-5. **Rasterizer**
-
-  1. 삼각형별 바운딩 박스 계산  
-  2. 바리센트릭 검사 → 깊이 보간  
-  3. depthBuffer 비교 후 frameBuffer 갱신  
-  4. (선택) Back‐face culling  
-
-
-6. **BMP Saving**
-
-saveBMP("out.bmp", 512, 512, frameBuffer);
