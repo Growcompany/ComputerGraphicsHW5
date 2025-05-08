@@ -34,16 +34,8 @@ g++ -std=c++17 main.cpp sphere_scene.cpp -o rasterizer -O2
 ```bash
 ./rasterizer
 ```
-실행 후 작업 디렉터리에 out.bmp 파일이 생성됩니다.
+실행 후 작업 디렉터리에 out.bmp 파일이 생성됩니다.  
 out.bmp 를 운영체제 기본 이미지 뷰어(Windows 사진 뷰어, macOS 미리보기 등)로 열어 Unshaded Sphere 결과를 확인하세요.
-
-## File Structure
-
-project-root/
-├─ sphere_scene.cpp   # unit‐sphere 메시 생성(create_scene)
-├─ main.cpp           # 변환 파이프라인 · 래스터라이저 · BMP 저장
-└─ out.bmp            # 실행 결과 이미지 (자동 생성)
-
 
 ## Pipeline Summary
 
