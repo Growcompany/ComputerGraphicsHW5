@@ -26,6 +26,7 @@
 
 ```bash
 g++ -std=c++17 main.cpp sphere_scene.cpp -o rasterizer -O2
+```
 
 ## Run Instructions
 
