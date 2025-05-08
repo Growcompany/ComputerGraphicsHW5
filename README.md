@@ -5,7 +5,7 @@
 이 과제의 목표는 **소프트웨어 렌더링 파이프라인**을 직접 구현하여, 여러 개의 삼각형으로 구성된 단일 구체(sphere)를 “Unshaded” 상태로 화면에 출력하는 것입니다.  
 - **Input**: 수업 웹페이지에서 제공되는 `sphere_scene.cpp` (unit‐sphere 메시 생성)  
 - **Pipeline**: 모델링 → 뷰 → 투영 → 뷰포트 → 래스터라이즈 → 깊이(depth) 버퍼 → BMP 출력  
-- **Output**: `out.bmp` (512×512 해상도, 흰색 구체)
+- **Output**: `HW5_Result_Img.bmp` (512×512 해상도, 흰색 구체)
 
 ---
 
