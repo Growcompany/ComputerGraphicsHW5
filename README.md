@@ -12,11 +12,9 @@
 ## Table of Contents
 
 1. [Compilation Instructions](#compilation-instructions)  
-2. [Run Instructions](#run-instructions)  
-3. [File Structure](#file-structure)  
-4. [Pipeline Summary](#pipeline-summary)  
-5. [Components Description](#components-description)  
-6. [Notes](#notes)  
+2. [Run Instructions](#run-instructions)   
+3. [Pipeline Summary](#pipeline-summary)  
+4. [Components Description](#components-description)    
 
 ---
 
@@ -35,7 +33,7 @@ g++ -std=c++17 main.cpp sphere_scene.cpp -o rasterizer -O2
 ./rasterizer
 ```
 실행 후 작업 디렉터리에 out.bmp 파일이 생성됩니다.  
-out.bmp 를 운영체제 기본 이미지 뷰어(Windows 사진 뷰어, macOS 미리보기 등)로 열어 Unshaded Sphere 결과를 확인하세요.
+out.bmp 를 운영체제 기본 이미지 뷰어로 열어 Unshaded Sphere 결과를 확인하세요.
 
 ## Pipeline Summary
 
